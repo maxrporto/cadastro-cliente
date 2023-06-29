@@ -41,7 +41,7 @@ export class AuthService {
         this.afAuth.authState.subscribe((user) => {
           if (user) {
             console.log(user);
-            this.router.navigate(['dashboard']);
+            this.router.navigate(['./dashboard']);
           }
         });
       })

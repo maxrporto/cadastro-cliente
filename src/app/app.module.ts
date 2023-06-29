@@ -15,7 +15,7 @@ import { environment } from '../environments/environment';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
+// import { MatToolbarModule } from '@angular/material/toolbar';
 
 // import { DashboardComponent } from './components/dashboard/dashboard.component';
 // import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
@@ -23,6 +23,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 // import { SignUpComponent } from './components/sign-up/sign-up.component';
 // import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { AuthService } from './shared/services/auth.service';
+import { SignInComponent } from './login/sign-in/sign-in.component';
+import { SignUpComponent } from './login/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './login/verify-email/verify-email.component';
 // import { HeaderComponent } from './templates/header/header.component';
 // import { FooterComponent } from './templates/footer/footer.component';
 //import { NavegacaoComponent } from './templates/navegacao/navegacao.component';
@@ -34,10 +38,10 @@ import { AuthService } from './shared/services/auth.service';
   declarations: [
     AppComponent,
     // DashboardComponent,
-    // SignInComponent,
-    // SignUpComponent,
-    // ForgotPasswordComponent,
-    // VerifyEmailComponent,
+     SignInComponent,
+     SignUpComponent,
+     ForgotPasswordComponent,
+     VerifyEmailComponent,
     // HeaderComponent,
     // FooterComponent
     
@@ -54,7 +58,7 @@ import { AuthService } from './shared/services/auth.service';
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
+    //MatToolbarModule,
     MatSidenavModule,
     MatListModule,
     MatCardModule,
