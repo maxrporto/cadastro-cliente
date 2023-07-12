@@ -1,1 +1,202 @@
-<p>novo works!</p>
+<mat-card class="home mat-elevation-z3">
+  <mat-card-header>
+    <mat-card-title class="title">Cadastro de Cliente</mat-card-title>
+    <!-- <mat-card-subtitle class="subtitle"
+      >Cdastra novos clientes!</mat-card-subtitle
+    > -->
+  </mat-card-header>
+
+  <mat-card-content>
+    <form
+      novalidate
+      class="cadastro-form"
+      (ngSubmit)="adicionarCliente()"
+      [formGroup]="pessoaForm"
+    >
+      <!-- <div class="alert alert-danger" *ngIf="errors.length > 0">
+        <h3 id="msgRetorno">Opa! Alguma coisa não deu certo:</h3>
+        <ul>
+          <li *ngFor="let error of errors">{{ error }}</li>
+        </ul>
+      </div> -->
+
+      <table class="cadastro-full-width" cellspacing="0">
+        <tr >
+          <td>
+            <mat-form-field class="mat-form-field">
+              <mat-label>nome</mat-label>
+              <input
+                matInput
+                id="nomePessoa"
+                formControlName="nomePessoa"
+                [ngClass]="{ 'is-invalid': displayMessage.nomePessoa }" required
+              />
+              <!-- <span class="text-danger" *ngIf="displayMessage.nomePessoa">
+                <p [innerHTML]="displayMessage.nomePessoa"></p>
+              </span> -->
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="cadastro-width">
+              <mat-label>data nascimento</mat-label>
+              <input
+                matInput
+                id="dataNascimento"
+                formControlName="dataNascimento"
+                [ngClass]="{ 'is-invalid': displayMessage.dataNascimento }" required
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="cadastro-width-hora">
+              <mat-label>hora nascimento</mat-label>
+              <input
+                matInput
+                id="horaNascimento"
+                formControlName="horaNascimento"
+                [ngClass]="{ 'is-invalid': displayMessage.hoaNascimento }" required
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+
+      <p>
+        <mat-form-field class="cadastro-full-width">
+          <mat-label>Email</mat-label>
+          <input
+            id="email"
+            type="email"
+            matInput
+            formControlName="email"
+            placeholder="Ex. email@email.com"
+            [ngClass]="{ 'is-invalid': displayMessage.email }" required
+          />
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field class="cadastro-full-width">
+          <mat-label>Observações</mat-label>
+          <textarea matInput formControlName="observacao" id="observacao">
+          </textarea>
+        </mat-form-field>
+      </p>
+      <div formGroupName="endereco">
+        <table class="cadastro-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="mat-form-field">
+                <mat-label>Rua</mat-label>
+                <input
+                  id="logradouro"
+                  matInput
+                  placeholder="Ex. Rua Protasio ALves"
+                  formControlName="logradouro"
+                />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="cadastro-width">
+                <mat-label>número</mat-label>
+                <input matInput formControlName="numero" id="numero" />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="cadastro-full-width">
+                <mat-label>Bairro</mat-label>
+                <input
+                  id="bairro"
+                  matInput
+                  placeholder="Ex. Petroplolis"
+                  formControlName="bairro"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+        <table class="cadastro-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="mat-form-field">
+                <mat-label>complemento</mat-label>
+                <input matInput matInput formControlName="complemento" id="complemento" />
+                
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="cadastro-full-width">
+                <mat-label>Cidade</mat-label>
+                <input
+                  id="cidade"
+                  matInput
+                  placeholder="Ex. San Francisco"
+                  formControlName="cidade"
+                  [ngClass]="{ 'is-invalid': displayMessage.cidade }" required
+                />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="cadastro-full-width">
+                <mat-label>Estado</mat-label>
+                <input
+                  id="estado"
+                  matInput
+                  placeholder="Ex. California"
+                  formControlName="estado"
+                  [ngClass]="{ 'is-invalid': displayMessage.estado }" required
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+        <table class="cadastro-full-width" cellspacing="0">
+          <tr>            
+            <td>
+              <mat-form-field class="cadastro-full-width">
+                <mat-label>CEP</mat-label>
+                <input
+                  id="cep"
+                  matInput
+                  #postalCode
+                  maxlength="8"
+                  placeholder="Ex. 94105020"
+                  value=""
+                  formControlName="cep"
+                />
+                <mat-hint align="end"
+                  >{{ postalCode.value.length }} / 8</mat-hint
+                >
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="cadastro-full-width">
+                <mat-label>País</mat-label>
+                <input
+                  id="pais"
+                  matInput
+                  placeholder="Ex. Brasil"
+                  formControlName="pais"
+                  [ngClass]="{ 'is-invalid': displayMessage.pais }" required
+                />
+              </mat-form-field>
+            </td>
+          </tr>        
+        </table>
+      </div>
+      <div class="button-row">
+        <button mat-raised-button color="primary" type="submit">Salvar</button>
+      </div>
+
+      <!-- <div class="form-group">
+        <div class="col-md-4 col-md-offset-2">
+          <p>Formulario valido: {{ pessoaForm.valid }}</p>
+          <p>Formulario Tocado: {{ pessoaForm.touched }}</p>
+          <p>Formulario Sujo: {{ pessoaForm.dirty }}</p>
+          <br />
+          <p>Formulario: {{ formResult }}</p>
+        </div>
+      </div> -->
+    </form>
+  </mat-card-content>
+</mat-card>

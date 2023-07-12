@@ -9,7 +9,7 @@ const dashboardRoutes: Routes = [
     component: DashboardComponent,
     children: [
       {
-        path: 'pessoa',
+        path: '',
         loadChildren: () => import('./../view/pessoa/pessoa.module').then(m => m.PessoaModule)
       }
     ]
@@ -17,7 +17,7 @@ const dashboardRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(dashboardRoutes)],
+  imports: [RouterModule.forChild(dashboardRoutes)],
   exports: [RouterModule]
 })
 export class DashboardRountingModule { }

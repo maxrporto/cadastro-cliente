@@ -6,7 +6,7 @@ import { NgModule } from "@angular/core";
 
 const pessoaRouterConfig: Routes = [ 
   {
-     path: '', component: PessoaAppComponent,
+     path: 'pessoa', component: PessoaAppComponent,
      children: [
        { path: 'lista', component: ListaComponent },
        { path: 'novo', component: NovoComponent }

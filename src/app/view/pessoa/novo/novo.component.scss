@@ -1,0 +1,70 @@
+.home .title {
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+.home .subtitle {
+  font-size: 1.1rem;
+}
+
+.cadastro-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.cadastro-full-width {
+  width: 100%;
+}
+
+.cadastro-width {
+  width: 60%;
+}
+
+.cadastro-width-hora {
+  width: 40%;
+  
+}
+
+td {
+  padding-right: 6px;
+}
+
+.mat-form-field{
+  width:370px !important;
+}
+
+.tdEspaco { float:right; margin-right: 80px; }
+.tdTamanho { width: 60%; }
+// section {
+//   display: table;
+// }
+
+// .example-label {
+//   display: table-cell;
+//   font-size: 14px;
+//   margin-left: 8px;
+//   min-width: 120px;
+// }
+
+.button-row {
+  display: table-cell;
+  max-width: 600px;
+}
+
+.button-row .mat-mdc-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+// .example-flex-container {
+//   display: flex;
+//   justify-content: space-between;
+//   flex-wrap: wrap;
+// }
+
+// .example-button-container {
+//   display: flex;
+//   justify-content: center;
+//   width: 120px;
+// }

@@ -19,10 +19,7 @@ const routes: Routes = [
     loadChildren: () => 
       import('./components/dashboard.module').then(m => m.DashboardModule), 
           canActivate: [AuthGuard]
-   }
-  // { path: 'pessoa',
-  //   loadChildren: () => import('./view/pessoa/pessoa.module').then(m => m.PessoaModule)
-  // }
+   } 
 ];
 
 @NgModule({

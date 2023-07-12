@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,9 +9,16 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class DashboardComponent implements OnInit {
 
+  constructor(
+    public authService: AuthService,
+    private spinner: NgxSpinnerService) {
+      this.spinner.show();
+    }
 
-  constructor(public authService: AuthService) {}
+  ngOnInit(): void {
 
-  ngOnInit(): void {}
+    console.log('ENTROU NO DASHBOARD');
+    this.spinner.hide();
+  }
 
 }

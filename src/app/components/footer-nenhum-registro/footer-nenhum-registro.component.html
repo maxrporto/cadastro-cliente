@@ -1,0 +1,10 @@
+<ng-container matColumnDef="nenhumRegistro">
+  <!-- <mat-footer-cell *matFooterCellDef colspan="6" class="msg-nenhum-registro">
+    <span>{{ mensagem }}</span>
+  </mat-footer-cell> -->
+</ng-container>
+<mat-footer-row
+  *matFooterRowDef="['nenhumRegistro']"
+  [ngClass]="{ 'hide-footer': !exibeFooter }"
+></mat-footer-row>
+

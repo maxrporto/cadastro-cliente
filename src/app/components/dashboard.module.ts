@@ -11,24 +11,21 @@ import { FooterComponent } from "../templates/footer/footer.component";
 import { HeaderComponent } from "../templates/header/header.component";
 import { DashboardRountingModule } from "./dashboard.route";
 import { DashboardComponent } from "./dashboard/dashboard.component";
-// import { ForgotPasswordComponent } from "../login/forgot-password/forgot-password.component";
-// import { SignInComponent } from "../login/sign-in/sign-in.component";
-// import { SignUpComponent } from "./sign-up/sign-up.component";
-// import { VerifyEmailComponent } from "./verify-email/verify-email.component";
-import { DashboardAppComponent } from "./dashboard.app.component";
 
+import { DashboardAppComponent } from "./dashboard.app.component";
+import { FooterNenhumRegistroComponent } from './footer-nenhum-registro/footer-nenhum-registro.component';
+import { NgxSpinnerModule } from "ngx-spinner";
+
+const dashboardDeclarations = [
+  DashboardAppComponent,
+  DashboardComponent,
+  HeaderComponent,
+  FooterComponent,
+  FooterNenhumRegistroComponent
+]
 @NgModule({
-  declarations: [
-    DashboardAppComponent,
-    DashboardComponent,   
-    // SignInComponent,
-    // SignUpComponent,
-    //ForgotPasswordComponent,
-    //VerifyEmailComponent,
-    HeaderComponent,
-    FooterComponent
-  ],
-  imports : [
+  declarations: dashboardDeclarations,
+  imports: [
     CommonModule,
     DashboardRountingModule,
     RouterModule,
@@ -37,10 +34,13 @@ import { DashboardAppComponent } from "./dashboard.app.component";
     MatListModule,
     MatCardModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    NgxSpinnerModule
   ],
+  exports: [dashboardDeclarations],
   providers: [
 
-  ]
+  ],
+  bootstrap: [DashboardAppComponent]
 })
-export class DashboardModule {}
+export class DashboardModule { }

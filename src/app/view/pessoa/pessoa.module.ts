@@ -1,36 +1,46 @@
+import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
-import { PessoaAppComponent } from "./pessoa.app.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from "@angular/material/card";
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from "@angular/material/list";
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTableModule } from '@angular/material/table';
+import { RouterModule } from "@angular/router";
+import { DashboardModule } from "src/app/components/dashboard.module";
 import { ListaComponent } from "./lista/lista.component";
 import { NovoComponent } from "./novo/novo.component";
-import { CommonModule } from "@angular/common";
+import { PessoaAppComponent } from "./pessoa.app.component";
 import { PessoaRountingModule } from "./pessoa.route";
-import { RouterModule } from "@angular/router";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { MatListModule } from "@angular/material/list";
-import { MatCardModule } from "@angular/material/card";
-import { HeaderComponent } from "src/app/templates/header/header.component";
-import { FooterComponent } from "src/app/templates/footer/footer.component";
-
+import { PessoaService } from "./service/pessoa.service";
 
 @NgModule({
   declarations: [
     PessoaAppComponent,
     ListaComponent,
     NovoComponent
-    // HeaderComponent,
-    // FooterComponent
   ],
-  imports : [
+  imports: [
     CommonModule,
     PessoaRountingModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatInputModule,
+    MatButtonModule,
+    MatTableModule,
+    DashboardModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule
+
+
   ],
   providers: [
-
+    PessoaService
   ]
 })
-export class PessoaModule {}
+export class PessoaModule { }

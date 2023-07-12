@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "app-customer-registratio-9c146": {
+      "hosting": {
+        "cadastro-cliente": [
+          "app-customer-registratio-9c146"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "app-customer-registratio-9c146"
+  }
+}
