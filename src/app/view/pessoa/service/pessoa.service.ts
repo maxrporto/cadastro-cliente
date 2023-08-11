@@ -12,8 +12,8 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
   providedIn: 'root'
 })
 export class PessoaService extends BaseService {
-
   pessoaRef: Pessoa[];
+  pes$: Observable<Pessoa>;
 
   constructor(
     private firestore: Firestore,
@@ -57,16 +57,22 @@ export class PessoaService extends BaseService {
           };
         });
       }));
-    // ).subscribe(docData => {
-    //   console.log(docData);
-    //    this.pessoaRef = docData;
-    //   // this.dataSource = new MatTableDataSource(this.pessoas);
-    //   // this.dataSource.sort = this.sort;
-    //   // this.dataSource.paginator = this.paginator;
-    // });
-
-    //return this.pessoaRef;
   }
+
+  consultarPessoa(uid: string):Observable<Pessoa> {
+    return this.db.collection<Pessoa>('cliente')
+    .doc(uid)
+    .valueChanges()
+    .pipe(
+      map((data) => {
+        let dados = data as Pessoa;
+        return {
+          uid: uid, ...dados
+        }
+      })
+    );
+  }
+
 
   // updateUser(userKey, value){
   //   value.nameToSearch = value.name.toLowerCase();

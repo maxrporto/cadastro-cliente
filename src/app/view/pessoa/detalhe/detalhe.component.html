@@ -1,0 +1,186 @@
+<mat-card class="home mat-elevation-z3">
+  <mat-card-header>
+    <mat-card-title class="title">Detalhes do Cliente</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content *ngIf="pessoa" style="margin-top: 15px">
+    <div>
+      <div class="divContainer">
+        <mat-form-field class="mat-form-field">
+          <mat-label>Nome</mat-label>
+          <input
+            id="nomePessoa"
+            matInput
+            placeholder="Nome"
+            readonly="true"
+            value="{{ pessoa.nomePessoa }}"
+          />
+        </mat-form-field>
+      </div>
+      <div class="divContainer">
+        <mat-form-field class="mat-form-field-calendar">
+          <mat-label>Data Nascimento</mat-label>
+          <input
+            id="dataNascimento"
+            matInput
+            placeholder="Data Nascimento"
+            readonly="true"
+            value="{{ pessoa.dataNascimento }}"
+          />
+        </mat-form-field>
+      </div>
+      <div class="divContainer">
+        <mat-form-field class="mat-form-field-hora">
+          <mat-label>Hora</mat-label>
+          <input
+            id="horaNascimento"
+            matInput
+            placeholder="hora"
+            type="time"
+            readonly="true"
+            #time
+            value="{{ pessoa.horaNascimento }}"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+    <div>
+      <mat-form-field class="mat-form-field-email">
+        <mat-label>email</mat-label>
+        <input
+          id="email"
+          type="email"
+          readonly="true"
+          matInput
+          placeholder="Ex. email@email.com"
+          value="{{ pessoa.email }}"
+        />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="mat-form-field-email">
+        <mat-label>observação</mat-label>
+        <textarea
+          matInput
+          id="observacao"
+          placeholder="observação"
+          readonly="true"
+          value="{{ pessoa.observacao }}"
+        >
+        </textarea>
+      </mat-form-field>
+    </div>
+    <div>
+      <div class="divContainer">
+        <mat-form-field class="mat-form-field">
+          <mat-label>Logradouro</mat-label>
+          <input
+            id="logradouro"
+            matInput
+            placeholder="logradouro"
+            readonly="true"
+            value="{{ pessoa.endereco.logradouro }}"
+          />
+        </mat-form-field>
+      </div>
+      <div class="divContainer">
+        <mat-form-field class="mat-form-field-endereco">
+          <mat-label>Número</mat-label>
+          <input
+            id="numero"
+            matInput
+            placeholder="numero"
+            readonly="true"
+            value="{{ pessoa.endereco.numero }}"
+          />
+        </mat-form-field>
+      </div>
+      <div class="divContainer">
+        <mat-form-field class="mat-form-field-endereco">
+          <mat-label>Bairro</mat-label>
+          <input
+            id="bairro"
+            matInput
+            placeholder="bairro"
+            readonly="true"
+            value="{{ pessoa.endereco.bairro }}"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+    <div>
+      <div class="divContainer">
+        <mat-form-field class="mat-form-field">
+          <mat-label>Complemento</mat-label>
+          <input
+            id="complemento"
+            matInput
+            placeholder="complemento"
+            readonly="true"
+            value="{{ pessoa.endereco.complemento }}"
+          />
+        </mat-form-field>
+      </div>
+      <div class="divContainer">
+        <mat-form-field class="mat-form-field-cidade">
+          <mat-label>Cidade</mat-label>
+          <input
+            id="cidade"
+            matInput
+            placeholder="cidade"
+            readonly="true"
+            value="{{ pessoa.endereco.cidade }}"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+    <div>
+      <div class="divContainer">
+        <mat-form-field class="mat-form-field-endereco">
+          <mat-label>Complemento</mat-label>
+          <input
+            id="cep"
+            matInput
+            #postalCode
+            maxlength="8"
+            placeholder="cep"
+            value=""
+            readonly="true"
+            value="{{ pessoa.endereco.cep }}"
+          />
+          <mat-hint align="end">{{ postalCode.value.length }} / 8</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="divContainer">
+        <mat-form-field class="mat-form-field-endereco">
+          <mat-select
+            [ngModel]="selectedValue"
+            name="estado"
+            placeholder="estados"
+            readonly="true"
+          >
+            <mat-option *ngFor="let estado of estados" [value]="estado.value">
+              {{ estado.description }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="divContainer">
+        <mat-form-field class="mat-form-field-endereco">
+          <mat-label>País</mat-label>
+          <input
+            id="pais"
+            matInput
+            placeholder="pais"
+            readonly="true"
+            value="{{ pessoa.endereco.pais }}"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+    <mat-card-actions>
+      <button (click)="cancelar()" mat-raised-button color="primary" type="submit">Fechar</button>
+    </mat-card-actions>
+  </mat-card-content>
+
+</mat-card>

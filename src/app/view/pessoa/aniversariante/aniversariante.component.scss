@@ -1,0 +1,66 @@
+
+@keyframes aniversariante{
+  50% {
+    transform: translateY(-10%);
+  }
+}
+
+.div-flutuante{
+  width: 37%;
+  animation: aniversariante 1.5s infinite ease-in-out;
+  background-color: burlywood;
+  height: 50%;
+  display: inline-block;
+  justify-content: 3px;
+  height:15%;
+  margin-top: 0.5%;
+  margin-left: 0.5%;
+  padding: 50px;
+  border-radius: 15px;
+}
+
+.mat-label-dados {
+  font-size: 12px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.mat-label-fixo {
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.mat-card-home {
+  margin-top: 2%;
+  display: inline-block !important;
+}
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse-animation {
+    animation: pulse 3s infinite; /* Ajuste a duração conforme necessário */
+}
+
+.layout-div{
+  background-color: rgb(0, 217, 255);
+  width: 100%;
+  margin-top: 0.5%;
+  //margin-left: 0.5%;
+  padding: 40px;
+  border-radius: 15px;
+  //height: 40%;
+  display: inline-block;
+  justify-content: 3px;
+  margin-left: 15px;
+}

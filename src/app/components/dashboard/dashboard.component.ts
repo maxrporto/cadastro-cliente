@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/shared/services/auth.service';
-import { NgxSpinnerService } from 'ngx-spinner';
+import { Component, Input, OnInit, EventEmitter } from '@angular/core';
+
+import { TarefaService } from 'src/app/tarefa.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,16 +9,20 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class DashboardComponent implements OnInit {
 
+
   constructor(
-    public authService: AuthService,
-    private spinner: NgxSpinnerService) {
-      this.spinner.show();
+    public tarefaService: TarefaService) {
     }
 
   ngOnInit(): void {
+  }
 
-    console.log('ENTROU NO DASHBOARD');
-    this.spinner.hide();
+  enviaMenuEvent(menu: string){
+    this.tarefaService.emitirMenuSelecionado.subscribe(
+      menu => {
+        console.log(menu);
+      }
+    )
   }
 
 }

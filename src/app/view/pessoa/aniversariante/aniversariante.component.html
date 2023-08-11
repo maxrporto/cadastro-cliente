@@ -1,0 +1,37 @@
+<mat-card  class="mat-card-home"  *ngIf="listaAniversariantes">
+  <div class="pulse-animation layout-div" *ngFor="let pes of listaAniversariantes;">
+    <table cellspacing="0">
+      <tr>
+        <td>
+        </td>
+        <td>
+          <mat-label class="mat-label-dados">{{ pes.nomePessoa }}</mat-label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-label class="mat-label-fixo">Data: </mat-label>
+        </td>
+        <td>
+          <mat-label class="mat-label-dados">{{ pes.dataNascimento }}</mat-label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-label class="mat-label-fixo">Idade: </mat-label>
+        </td>
+        <td>
+          <mat-label class="mat-label-dados">{{ calculaIdade(pes.dataNascimento) }}</mat-label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-label class="mat-label-fixo">e-mail: </mat-label>
+        </td>
+        <td>
+          <mat-label class="mat-label-dados">{{ pes.email }}</mat-label>
+        </td>
+      </tr>
+    </table>
+  </div>
+</mat-card>

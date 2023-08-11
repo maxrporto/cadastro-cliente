@@ -8,25 +8,26 @@
   font-size: 1.1rem;
 }
 
-// .example-container {
-//   display: flex;
-//   flex-direction: column;
-//   min-width: 300px;
-// }
-
-// .mat-table {
-//   overflow: auto;
-//   max-height: 500px;
-// }
-
-// .mat-header-cell.mat-sort-header-sorted {
-//   color: black;
-// }
-
 table {
   width: 100%;
 }
 
 th.mat-sort-header-sorted {
   color: black;
+}
+
+.mat-card-display {
+  display: inline-block !important;
+}
+
+.make-gold {
+  background-color: yellow;
+}
+
+.hide_element{
+  display: none;
+}
+
+tr.mat-header:hover{
+  color: yellow;
 }

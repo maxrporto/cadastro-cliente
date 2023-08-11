@@ -14,7 +14,6 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 
 import { DashboardAppComponent } from "./dashboard.app.component";
 import { FooterNenhumRegistroComponent } from './footer-nenhum-registro/footer-nenhum-registro.component';
-import { NgxSpinnerModule } from "ngx-spinner";
 
 const dashboardDeclarations = [
   DashboardAppComponent,
@@ -34,8 +33,8 @@ const dashboardDeclarations = [
     MatListModule,
     MatCardModule,
     MatSidenavModule,
-    MatToolbarModule,
-    NgxSpinnerModule
+    MatToolbarModule
+
   ],
   exports: [dashboardDeclarations],
   providers: [

@@ -31,6 +31,13 @@ import { SignUpComponent } from './login/sign-up/sign-up.component';
 import { VerifyEmailComponent } from './login/verify-email/verify-email.component';
 import { ErrorInterceptor } from './service/error.handler.service';
 import { AuthService } from './shared/services/auth.service';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
+import { LOCALE_ID } from '@angular/core';
+import { DatePipe, registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+
+registerLocaleData(localePt);
 
 export const httpInterceptorProviders = [
   { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
@@ -66,9 +73,15 @@ export const httpInterceptorProviders = [
     provideMessaging(() => getMessaging()),
     providePerformance(() => getPerformance()),
     provideRemoteConfig(() => getRemoteConfig()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    NgxSpinnerModule
   ],
-  providers: [AuthService, ScreenTrackingService,UserTrackingService],
+  providers: [
+    AuthService,
+    ScreenTrackingService,
+    UserTrackingService,
+    DatePipe,
+    { provide: LOCALE_ID, useValue: "pt-BR" }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
