@@ -1,7 +1,7 @@
 .sidenav {
   background-color: whitesmoke;
   width: 200px;
-  padding: -15px;
+  padding: -10px;
 }
 
 .navlist {
@@ -16,13 +16,13 @@
 .content {
   padding: 16px;
   background-color: #fff;
-  width: 85%;
+  width: 100%;
 }
 
 .container {
   position: absolute;
   top: 75px;
-  bottom: 65px;
+  bottom: 50px;
   background: 0;
-
+  max-width: 90%
 }

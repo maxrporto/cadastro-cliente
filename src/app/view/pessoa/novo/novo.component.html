@@ -1,11 +1,4 @@
-<mat-card class="home mat-elevation-z3">
-  <mat-card-header>
-    <mat-card-title class="title">Cadastro de Cliente</mat-card-title>
-    <!-- <mat-card-subtitle class="subtitle"
-      >Cdastra novos clientes!</mat-card-subtitle
-    > -->
-  </mat-card-header>
-
+<mat-card class="mat-container">
     <form
       novalidate
       [formGroup]="pessoaForm"
@@ -15,11 +8,13 @@
       <div>
         <div class="divContainer">
           <mat-form-field class="mat-form-field">
+            <mat-label>Nome</mat-label>
             <input id="nomePessoa" formControlName="nomePessoa" matInput placeholder="Nome">
           </mat-form-field>
         </div>
         <div class="divContainer">
           <mat-form-field class="mat-form-field-calendar">
+            <mat-label>Data Nascimento</mat-label>
             <input id="dataNascimento"  formControlName="dataNascimento" placeholder="data nascimento" matInput [matDatepicker]="picker">
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -28,6 +23,7 @@
         </div>
         <div class="divContainer">
           <mat-form-field class="mat-form-field-hora">
+            <mat-label>Hora Nascimento</mat-label>
             <input id="horaNascimento" formControlName="horaNascimento" matInput placeholder="hora" type="time" #time>
           </mat-form-field>
         </div>
@@ -35,6 +31,7 @@
 
       <div>
         <mat-form-field class="mat-form-field-email">
+          <mat-label>E-mail</mat-label>
           <input
             id="email"
             type="email"
@@ -46,6 +43,7 @@
       </div>
       <div>
         <mat-form-field class="mat-form-field-email">
+          <mat-label>Observação</mat-label>
           <textarea matInput formControlName="observacao" id="observacao"  placeholder="observação">
           </textarea>
         </mat-form-field>
@@ -53,6 +51,7 @@
       <div formGroupName="endereco">
         <div class="divContainer">
           <mat-form-field class="mat-form-field">
+            <mat-label>Logradouro</mat-label>
             <input
               id="logradouro"
               matInput
@@ -63,11 +62,13 @@
         </div>
         <div style="width: 100px;">
           <mat-form-field class="mat-form-field-endereco">
+            <mat-label>Número</mat-label>
             <input matInput formControlName="numero" id="numero"  placeholder="número"/>
           </mat-form-field>
         </div>
         <div  class="divContainer">
           <mat-form-field class="mat-form-field-endereco">
+            <mat-label>Bairro</mat-label>
             <input
               id="bairro"
               matInput
@@ -80,11 +81,13 @@
       <div  formGroupName="endereco">
         <div class="divContainer">
           <mat-form-field class="mat-form-field">
+            <mat-label>Complemento</mat-label>
             <input matInput matInput formControlName="complemento" id="complemento" placeholder="complemento" />
           </mat-form-field>
         </div>
         <div class="divContainer">
           <mat-form-field class="mat-form-field-cidade">
+            <mat-label>Cidade</mat-label>
             <input
               id="cidade"
               matInput
@@ -97,6 +100,7 @@
       <div  formGroupName="endereco">
         <div class="divContainer">
           <mat-form-field class="mat-form-field-endereco">
+            <mat-label>Cep</mat-label>
             <input
               id="cep"
               matInput
@@ -111,6 +115,7 @@
       </div>
         <div class="divContainer">
           <mat-form-field class="mat-form-field-endereco">
+            <mat-label>Estado</mat-label>
             <mat-select [ngModel]="selectedValue" name="estado"  placeholder="estados" formControlName="estado">
               <mat-option *ngFor="let estado of estados" [value]="estado.value">
                 {{ estado.description }}

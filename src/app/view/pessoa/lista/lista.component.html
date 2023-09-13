@@ -1,96 +1,92 @@
-<!-- <mat-card class="home mat-elevation-z3">
-  <mat-card-header>
-    <mat-card-title class="title">Lista de Cliente</mat-card-title>
-    <mat-card-subtitle class="subtitle"
-      >Lista de clientes ordenado pelas data de aniversário rescentes
-      !</mat-card-subtitle
-    >
-  </mat-card-header>
-</mat-card> -->
+<mat-card-content class="mat-container">
 
-<mat-card class="home mat-elevation-z3">
-  <div *ngIf="dataSource" style="margin-top: 15px">
-    <table mat-table [dataSource]="dataSource" matSort matSortActive="uid" matSortDirection="asc" class="mat-elevation-z8">
-      <ng-container matColumnDef="uid">
-        <th mat-header-cell class="hide_element"
-          *matHeaderCellDef
-          mat-sort-header
-          sortActionDescription="Sort by uid"
+    <mat-card>
+      <div *ngIf="dataSource">
+        <table mat-table [dataSource]="dataSource" matSort matSortActive="uid" matSortDirection="asc" class="mat-elevation-z8">
+          <ng-container matColumnDef="uid">
+            <th mat-header-cell class="hide_element"
+              *matHeaderCellDef
+              mat-sort-header
+              sortActionDescription="Sort by uid"
+            >
+              id
+            </th>
+            <td mat-cell *matCellDef="let element" class="hide_element">{{ element.uid }}</td>
+          </ng-container>
+          <ng-container matColumnDef="nomePessoa">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header
+              sortActionDescription="Sort by nome"
+            >
+              Nome
+            </th>
+            <td mat-cell *matCellDef="let element">{{ element.nomePessoa }}</td>
+          </ng-container>
+          <ng-container matColumnDef="dataNascimento">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header
+              sortActionDescription="Sort by data"
+            >
+              Data Nascimento
+            </th>
+            <td mat-cell *matCellDef="let element">{{ element.dataNascimento }}</td>
+          </ng-container>
+          <ng-container matColumnDef="horaNascimento">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header
+              sortActionDescription="Sort by hora"
+            >
+              Hora Nascimento
+            </th>
+            <td mat-cell *matCellDef="let element">{{ element.horaNascimento }}</td>
+          </ng-container>
+          <ng-container matColumnDef="email">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header
+              sortActionDescription="Sort by email"
+            >
+              E-mail
+            </th>
+            <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+          </ng-container>
+          <ng-container matColumnDef="editar">
+            <th
+              mat-header-cell
+              *matHeaderCellDef>
+              Editar
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <button mat-icon-button (click)="onDetalhe(element.uid)" matTooltip="detalhe">
+                <mat-icon>search</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="headersColumns"></tr>
+          <tr mat-row  [ngClass]="{'make-gold': filtraAniversarianteSemana(row.dataNascimento)}" *matRowDef="let row; columns: headersColumns"></tr>
+        </table>
+        <mat-paginator class="mat-elevation-z8"
+          [length]="total"
+          [pageSize]="10"
+          [pageSizeOptions]="[10, 20, 30]"
+          showFirstLastButtons
         >
-          id
-        </th>
-        <td mat-cell *matCellDef="let element" class="hide_element">{{ element.uid }}</td>
-      </ng-container>
-      <ng-container matColumnDef="nomePessoa">
-        <th
-          mat-header-cell
-          *matHeaderCellDef
-          mat-sort-header
-          sortActionDescription="Sort by nome"
-        >
-          Nome
-        </th>
-        <td mat-cell *matCellDef="let element">{{ element.nomePessoa }}</td>
-      </ng-container>
-      <ng-container matColumnDef="dataNascimento">
-        <th
-          mat-header-cell
-          *matHeaderCellDef
-          mat-sort-header
-          sortActionDescription="Sort by data"
-        >
-          Data Nascimento
-        </th>
-        <td mat-cell *matCellDef="let element">{{ element.dataNascimento }}</td>
-      </ng-container>
-      <ng-container matColumnDef="horaNascimento">
-        <th
-          mat-header-cell
-          *matHeaderCellDef
-          mat-sort-header
-          sortActionDescription="Sort by hora"
-        >
-          Hora Nascimento
-        </th>
-        <td mat-cell *matCellDef="let element">{{ element.horaNascimento }}</td>
-      </ng-container>
-      <ng-container matColumnDef="email">
-        <th
-          mat-header-cell
-          *matHeaderCellDef
-          mat-sort-header
-          sortActionDescription="Sort by email"
-        >
-          E-mail
-        </th>
-        <td mat-cell *matCellDef="let element">{{ element.email }}</td>
-      </ng-container>
-      <ng-container matColumnDef="editar">
-        <th
-          mat-header-cell
-          *matHeaderCellDef>
-          Editar
-        </th>
-        <td mat-cell *matCellDef="let element">
-          <button mat-icon-button (click)="onDetalhe(element.uid)" matTooltip="detalhe">
-            <mat-icon>search</mat-icon>
-          </button>
-        </td>
-      </ng-container>
-      <tr mat-header-row *matHeaderRowDef="headersColumns"></tr>
-      <tr mat-row  [ngClass]="{'make-gold': filtraAniversarianteSemana(row.dataNascimento)}" *matRowDef="let row; columns: headersColumns"></tr>
-    </table>
-    <mat-paginator class="mat-elevation-z8"
-      [length]="total"
-      [pageSize]="5"
-      [pageSizeOptions]="[5, 10, 20]"
-      showFirstLastButtons
-    >
-    </mat-paginator>
-  </div>
-</mat-card>
-<mat-card>
-  <div>
-    <app-aniversariante></app-aniversariante>
-  </div>
-</mat-card>
+        </mat-paginator>
+      </div>
+    </mat-card>
+
+
+    <mat-card class="mat-card">
+      <div>
+        <app-aniversariante></app-aniversariante>
+      </div>
+    </mat-card>
+
+  </mat-card-content>

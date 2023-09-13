@@ -6,10 +6,9 @@
 }
 
 .div-flutuante{
-  width: 37%;
   animation: aniversariante 1.5s infinite ease-in-out;
   background-color: burlywood;
-  height: 50%;
+  height: 40%;
   display: inline-block;
   justify-content: 3px;
   height:15%;
@@ -24,15 +23,28 @@
   font-family: 'Courier New', Courier, monospace;
 }
 
+.mat-label-aniversariante {
+  font-size: 10px;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+}
+
 .mat-label-fixo {
   font-size: 12px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
 
+.titulo {
+  font-weight: bold
+}
 .mat-card-home {
-  margin-top: 2%;
+  margin-top: 3%;
   display: inline-block !important;
+}
+
+.home .subtitle {
+  font-size: 1.1rem;
 }
 
 
@@ -54,10 +66,10 @@
 
 .layout-div{
   background-color: rgb(0, 217, 255);
-  width: 100%;
-  margin-top: 0.5%;
+  //width: 40%;
+  margin-top: 2.5%;
   //margin-left: 0.5%;
-  padding: 40px;
+  padding: 30px;
   border-radius: 15px;
   //height: 40%;
   display: inline-block;

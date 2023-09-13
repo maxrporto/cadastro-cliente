@@ -1,24 +1,35 @@
-.home .title {
-  font-size: 3rem;
-  font-weight: 300;
-  line-height: 1.2;
-}
-
-.home .subtitle {
-  font-size: 1.1rem;
-}
-
-table {
+.container {
+  display: flex;
+  padding: 10px;
   width: 100%;
 }
 
-th.mat-sort-header-sorted {
-  color: black;
+.card-container {
+  display: flex;
+//  justify-content: space-between;
+//  margin: 10px;
 }
+.mat-container{
+  width: 100%;
+  display: flex;
+}
+// .mat-card-posicion {
+//   flex: 1;
+//   // margin: 10px;
+//   // padding: 10px;
+//   box-sizing: border-box;
+//   background-color: white;
+//   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+// }
 
-.mat-card-display {
-  display: inline-block !important;
-}
+/* Removendo a margem direita da última div para evitar espaço extra */
+// .box:last-child {
+//   margin-right: 0;
+// }
+
+// .mat-card-display {
+//   display: inline-block !important;
+// }
 
 .make-gold {
   background-color: yellow;
@@ -28,6 +39,9 @@ th.mat-sort-header-sorted {
   display: none;
 }
 
-tr.mat-header:hover{
-  color: yellow;
+.mat-card {
+  margin: 10px;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

@@ -8,12 +8,12 @@ import { TarefaService } from 'src/app/tarefa.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  menuSelecionado: string;
   constructor(private service: TarefaService){}
 
   ngOnInit(): void {
-    this.service.emitirMenuSelecionado.subscribe(
-      menu => console.log(menu)
-    );
+    this.service.getText().subscribe( text => {
+      this.menuSelecionado = text;
+    })
   }
 }

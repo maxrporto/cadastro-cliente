@@ -66,7 +66,7 @@ export class DetalheComponent extends FormBaseComponent implements OnInit{
 
   ngOnInit(): void {
     console.log(this.idPessoa);
-     this.pessoaService.consultarPessoa(this.idPessoa)
+     this.pessoaService.consultar(this.idPessoa)
      .subscribe( dados =>{
       this.pessoa = dados;
       this.selectedValue = this.pessoa.endereco.estado;

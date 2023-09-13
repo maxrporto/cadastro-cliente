@@ -17,12 +17,8 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  enviaMenuEvent(menu: string){
-    this.tarefaService.emitirMenuSelecionado.subscribe(
-      menu => {
-        console.log(menu);
-      }
-    )
-  }
+  enviaMenuEvent(menuTexto: string){
+    this.tarefaService.setText(menuTexto);
+   }
 
 }

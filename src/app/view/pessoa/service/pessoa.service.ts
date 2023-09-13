@@ -1,12 +1,10 @@
-import { Endereco } from './../models/endereco.model';
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Firestore, addDoc, collection, collectionData } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Firestore } from '@angular/fire/firestore';
+import { Observable, map } from 'rxjs';
 import { BaseService } from 'src/app/service/base.service';
 import { Pessoa } from '../models/pessoa.model';
-import { get, list } from '@angular/fire/database';
-import { Observable, map } from 'rxjs';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { ReturnStatement } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +26,7 @@ export class PessoaService extends BaseService {
   incluirPessoa(pessoa: Pessoa) {
    return this.db.collection('cliente')
       .add({
-        nomePessoa: pessoa.nomePessoa,
+        nomePessoa: pessoa.nomePessoa.toUpperCase(),
         dataNascimento: pessoa.dataNascimento,
         horaNascimento: pessoa.horaNascimento,
         email: pessoa.email,
@@ -59,7 +57,7 @@ export class PessoaService extends BaseService {
       }));
   }
 
-  consultarPessoa(uid: string):Observable<Pessoa> {
+  consultar(uid: string):Observable<Pessoa> {
     return this.db.collection<Pessoa>('cliente')
     .doc(uid)
     .valueChanges()
@@ -73,6 +71,16 @@ export class PessoaService extends BaseService {
     );
   }
 
+  consultarPorNome(nome: string): Observable<boolean>{
+
+    return this.db.collection('cliente', ref => ref.where('nomePessoa', '==', nome))
+      .valueChanges()
+      .pipe(
+        map(name => {
+          return name.length > 0 ? true  : false;
+        })
+      );
+  }
 
   // updateUser(userKey, value){
   //   value.nameToSearch = value.name.toLowerCase();

@@ -17,6 +17,7 @@ import { RouterModule } from "@angular/router";
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { DashboardModule } from "src/app/components/dashboard.module";
 import { AniversarianteComponent } from './aniversariante/aniversariante.component';
@@ -56,7 +57,8 @@ import { PessoaService } from "./service/pessoa.service";
     MatDividerModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    FlexLayoutModule
   ],
   providers: [
     PessoaService
