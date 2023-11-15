@@ -70,7 +70,7 @@
             </td>
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="headersColumns"></tr>
-          <tr mat-row  [ngClass]="{'make-gold': filtraAniversarianteSemana(row.dataNascimento)}" *matRowDef="let row; columns: headersColumns"></tr>
+          <tr mat-row [ngClass]="{'make-gold': filtraAniversarianteSemana(row.dataNascimento)}" *matRowDef="let row; columns: headersColumns"></tr>
         </table>
         <mat-paginator class="mat-elevation-z8"
           [length]="total"
@@ -83,7 +83,7 @@
     </mat-card>
 
 
-    <mat-card class="mat-card">
+    <mat-card class="mat-card-aniver">
       <div>
         <app-aniversariante></app-aniversariante>
       </div>

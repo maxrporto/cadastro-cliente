@@ -27,6 +27,7 @@ import { NovoComponent } from "./novo/novo.component";
 import { PessoaAppComponent } from "./pessoa.app.component";
 import { PessoaRountingModule } from "./pessoa.route";
 import { PessoaService } from "./service/pessoa.service";
+import { StringsPipe } from "src/app/shared/pipes/strings.pipe";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { PessoaService } from "./service/pessoa.service";
     ListaComponent,
     NovoComponent,
     AniversarianteComponent,
-    DetalheComponent
+    DetalheComponent,
+    StringsPipe
   ],
   imports: [
     CommonModule,

@@ -6,10 +6,10 @@
 
 .card-container {
   display: flex;
-//  justify-content: space-between;
-//  margin: 10px;
+  //  justify-content: space-between;
+  //  margin: 10px;
 }
-.mat-container{
+.mat-container {
   width: 100%;
   display: flex;
 }
@@ -35,7 +35,7 @@
   background-color: yellow;
 }
 
-.hide_element{
+.hide_element {
   display: none;
 }
 
@@ -44,4 +44,18 @@
   padding: 10px;
   background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mat-card-aniver {
+  margin: 10px;
+  padding: 10px;
+  width: 30%;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#make-gold:hover {
+  background-color: yellow;
+  transition: 0.5s;
+  opacity: 0.7;
 }

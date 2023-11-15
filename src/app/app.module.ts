@@ -25,17 +25,17 @@ import { getMessaging, provideMessaging } from '@angular/fire/messaging';
 import { getPerformance, providePerformance } from '@angular/fire/performance';
 import { getRemoteConfig, provideRemoteConfig } from '@angular/fire/remote-config';
 import { getStorage, provideStorage } from '@angular/fire/storage';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { SignInComponent } from './login/sign-in/sign-in.component';
 import { SignUpComponent } from './login/sign-up/sign-up.component';
 import { VerifyEmailComponent } from './login/verify-email/verify-email.component';
 import { ErrorInterceptor } from './service/error.handler.service';
 import { AuthService } from './shared/services/auth.service';
-import { NgxSpinnerModule } from 'ngx-spinner';
 
-import { LOCALE_ID } from '@angular/core';
 import { DatePipe, registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { LOCALE_ID } from '@angular/core';
 
 registerLocaleData(localePt);
 

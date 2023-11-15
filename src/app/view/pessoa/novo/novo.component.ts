@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChildren } from '@angular/core';
-import { FormBuilder, FormControlName, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
 import { FormBaseComponent } from 'src/app/base-components/form-base.component';
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { map } from 'rxjs';
+import { verificaErroFormGroup } from 'src/app/utils/form-utils';
 
 @Component({
   selector: 'app-novo',
@@ -53,7 +54,7 @@ export class NovoComponent implements OnInit {
   ];
 
   errors: any[] = [];
-  pessoaForm: FormGroup;
+  //pessoaForm: FormGroup;
   pessoa: Pessoa;
   selectedValue: string;
   existePessoa: boolean;
@@ -75,26 +76,26 @@ export class NovoComponent implements OnInit {
     //this.configValidacaoElementos();
   }
 
+  pessoaForm = new FormGroup({
+    nomePessoa:  new FormControl('', [Validators.required]),
+    dataNascimento: new FormControl('', [Validators.required]),
+    horaNascimento:  new FormControl('', [Validators.required]),
+    email:  new FormControl('', [Validators.required]),
+    observacao:  new FormControl(''),
+
+    endereco: new FormGroup({
+      logradouro:  new FormControl(''),
+      numero: new FormControl(''),
+      complemento:  new FormControl(''),
+      bairro:  new FormControl(''),
+      cep:  new FormControl(''),
+      cidade: new FormControl('', [Validators.required]),
+      estado:  new FormControl('', [Validators.required]),
+      pais:  new FormControl('', [Validators.required])
+    })
+  });
   ngOnInit(): void {
 
-    this.pessoaForm = this.fb.group({
-      nomePessoa: ['', [Validators.required]],
-      dataNascimento: ['', [Validators.required]],
-      horaNascimento: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      observacao: [''],
-
-      endereco: this.fb.group({
-        logradouro: [''],
-        numero: [''],
-        complemento: [''],
-        bairro: [''],
-        cep: [''],
-        cidade: ['', [Validators.required]],
-        estado: ['', [Validators.required]],
-        pais: ['', [Validators.required]]
-      })
-    });
   }
 
   ngAfterViewInit(): void {
@@ -155,40 +156,11 @@ export class NovoComponent implements OnInit {
     this.toastr.error('Ocorreu um erro!', 'Opa :(');
   }
 
-  // private configValidacaoElementos(){
-  //   this.validationMessages = {
-  //     nomePessoa: {
-  //       required: 'Informe o Nome',
-  //     },
-  //     dataNascimento: {
-  //       required: 'Informe a data de nascimento',
-  //     },
-  //     horaNascimento: {
-  //       required: 'Informe a hora de nascimento',
-  //     },
-  //     email: {
-  //       required: 'Informe o e-mail',
-  //       email: 'Email inválido'
-  //     },
-  //     cidade: {
-  //       required: 'Informe a Cidade',
-  //     },
-  //     estado: {
-  //       required: 'Informe o Estado',
-  //     },
-  //     pais: {
-  //       required: 'Informe o País',
-  //     }
-  //   };
-
-  //   super.configurarMensagensValidacaoBase(this.validationMessages);
-  // }
-
-  // getErrorMessage() {
-  //   // if (this..hasError('required')) {
-  //   //   return 'You must enter a value';
-  //   // }
-
-  //   return this.pessoaForm.is.nomePessoa.hasError('email') ? 'Not a valid email' : '';
-  //}
+  verificaErro(nomeCampo: string, erros: string | string[]) {
+    return verificaErroFormGroup(
+      nomeCampo,
+      erros,
+      this.pessoaForm,
+    );
+  }
 }

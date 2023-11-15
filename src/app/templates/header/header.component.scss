@@ -20,3 +20,21 @@
 .header .title-group i {
   padding-right: 5px;
 }
+
+button#meuBotao {
+  position: relative;
+  float: left;
+  left: 75%;
+  //right: 120px; /* Distância da borda direita do navegador */
+  bottom: 3px; /* Distância da borda inferior do navegador */
+  padding: 10px 20px;
+  background-color: #c4c4c4;
+  color: #7c7a7a;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button#meuBotao:hover {
+  background-color: #c8c8c8;
+}

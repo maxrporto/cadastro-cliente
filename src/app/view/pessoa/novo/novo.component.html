@@ -1,37 +1,56 @@
-<mat-card class="mat-container">
-    <form
-      novalidate
-      [formGroup]="pessoaForm"
-      #ngForm="ngForm"
-    >
+<form [formGroup]="pessoaForm">
+  <mat-card class="mat-container">
     <mat-card-content>
       <div>
         <div class="divContainer">
           <mat-form-field class="mat-form-field">
-            <mat-label>Nome</mat-label>
-            <input id="nomePessoa" formControlName="nomePessoa" matInput placeholder="Nome">
+            <input
+              matInput
+              placeholder="Nome"
+              formControlName="nomePessoa"
+              appearance="outline"
+            />
+            <mat-error *ngIf="verificaErro('nomePessoa', 'required')">
+              {{ "informe_nome" | strings }}
+            </mat-error>
           </mat-form-field>
         </div>
         <div class="divContainer">
           <mat-form-field class="mat-form-field-calendar">
-            <mat-label>Data Nascimento</mat-label>
-            <input id="dataNascimento"  formControlName="dataNascimento" placeholder="data nascimento" matInput [matDatepicker]="picker">
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <input
+              formControlName="dataNascimento"
+              placeholder="data nascimento"
+              matInput
+              [matDatepicker]="picker"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="verificaErro('dataNascimento', 'required')">
+              {{ "informe_data_nascimento" | strings }}
+            </mat-error>
           </mat-form-field>
         </div>
         <div class="divContainer">
           <mat-form-field class="mat-form-field-hora">
-            <mat-label>Hora Nascimento</mat-label>
-            <input id="horaNascimento" formControlName="horaNascimento" matInput placeholder="hora" type="time" #time>
+            <input
+              formControlName="horaNascimento"
+              matInput
+              placeholder="hora"
+              type="time"
+              #time
+            />
+            <mat-error *ngIf="verificaErro('horaNascimento', 'required')">
+              {{ "informe_hora_nascimento" | strings }}
+            </mat-error>
           </mat-form-field>
         </div>
       </div>
 
       <div>
         <mat-form-field class="mat-form-field-email">
-          <mat-label>E-mail</mat-label>
           <input
             id="email"
             type="email"
@@ -39,19 +58,25 @@
             formControlName="email"
             placeholder="Ex. email@email.com"
           />
+          <mat-error *ngIf="verificaErro('email', 'required')">
+            {{ "informe_email" | strings }}
+          </mat-error>
         </mat-form-field>
       </div>
       <div>
         <mat-form-field class="mat-form-field-email">
-          <mat-label>Observação</mat-label>
-          <textarea matInput formControlName="observacao" id="observacao"  placeholder="observação">
+          <textarea
+            matInput
+            formControlName="observacao"
+            id="observacao"
+            placeholder="observação"
+          >
           </textarea>
         </mat-form-field>
       </div>
       <div formGroupName="endereco">
         <div class="divContainer">
           <mat-form-field class="mat-form-field">
-            <mat-label>Logradouro</mat-label>
             <input
               id="logradouro"
               matInput
@@ -60,15 +85,18 @@
             />
           </mat-form-field>
         </div>
-        <div style="width: 100px;">
+        <div style="width: 100px">
           <mat-form-field class="mat-form-field-endereco">
-            <mat-label>Número</mat-label>
-            <input matInput formControlName="numero" id="numero"  placeholder="número"/>
+            <input
+              matInput
+              formControlName="numero"
+              id="numero"
+              placeholder="número"
+            />
           </mat-form-field>
         </div>
-        <div  class="divContainer">
+        <div class="divContainer">
           <mat-form-field class="mat-form-field-endereco">
-            <mat-label>Bairro</mat-label>
             <input
               id="bairro"
               matInput
@@ -78,29 +106,29 @@
           </mat-form-field>
         </div>
       </div>
-      <div  formGroupName="endereco">
+      <div formGroupName="endereco">
         <div class="divContainer">
           <mat-form-field class="mat-form-field">
-            <mat-label>Complemento</mat-label>
-            <input matInput matInput formControlName="complemento" id="complemento" placeholder="complemento" />
+            <input
+              matInput
+              formControlName="complemento"
+              placeholder="complemento"
+            />
           </mat-form-field>
         </div>
         <div class="divContainer">
           <mat-form-field class="mat-form-field-cidade">
-            <mat-label>Cidade</mat-label>
-            <input
-              id="cidade"
-              matInput
-              placeholder="cidade"
-              formControlName="cidade"
-            />
+            <input matInput placeholder="cidade" formControlName="cidade" />
+            <mat-error *ngIf="verificaErro('endereco.cidade', 'required')">
+              {{ "informe_cidade" | strings }}
+            </mat-error>
           </mat-form-field>
         </div>
-    </div>
-      <div  formGroupName="endereco">
+      </div>
+      <div formGroupName="endereco">
         <div class="divContainer">
           <mat-form-field class="mat-form-field-endereco">
-            <mat-label>Cep</mat-label>
+            <!-- <mat-label>Cep</mat-label> -->
             <input
               id="cep"
               matInput
@@ -110,33 +138,44 @@
               value=""
               formControlName="cep"
             />
-            <mat-hint align="end">{{ postalCode.value.length }} / 8</mat-hint >
+            <mat-hint align="end">{{ postalCode.value.length }} / 8</mat-hint>
           </mat-form-field>
-      </div>
+        </div>
         <div class="divContainer">
           <mat-form-field class="mat-form-field-endereco">
-            <mat-label>Estado</mat-label>
-            <mat-select [ngModel]="selectedValue" name="estado"  placeholder="estados" formControlName="estado">
+            <mat-select
+              [ngModel]="selectedValue"
+              name="estado"
+              placeholder="estados"
+              formControlName="estado"
+            >
               <mat-option *ngFor="let estado of estados" [value]="estado.value">
                 {{ estado.description }}
               </mat-option>
             </mat-select>
+            <mat-error *ngIf="verificaErro('endereco.estado', 'required')">
+              {{ "informe_estado" | strings }}
+            </mat-error>
           </mat-form-field>
         </div>
         <div class="divContainer">
           <mat-form-field class="mat-form-field-endereco">
-            <mat-label>País</mat-label>
-            <input
-              id="pais"
-              matInput
-              placeholder="país"
-              formControlName="pais"
-            />
+            <input matInput placeholder="país" formControlName="pais" />
+            <mat-error *ngIf="verificaErro('endereco.pais', 'required')">
+              {{ "informe_pais" | strings }}
+            </mat-error>
           </mat-form-field>
         </div>
       </div>
       <mat-card-actions>
-        <button (click)="adicionarCliente()" mat-raised-button color="primary" type="submit">Salvar</button>
+        <button
+          (click)="adicionarCliente()"
+          mat-raised-button
+          color="primary"
+          type="submit"
+        >
+          Salvar
+        </button>
       </mat-card-actions>
 
       <!-- <div class="form-group">
@@ -149,5 +188,5 @@
         </div>
       </div> -->
     </mat-card-content>
-  </form>
-</mat-card>
+  </mat-card>
+</form>
